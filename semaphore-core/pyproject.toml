@@ -1,0 +1,88 @@
+# toml-sort --in-place --sort-inline-arrays --sort-inline-tables --sort-table-keys --spaces-indent-inline-array 4 --trailing-comma-inline-array pyproject.toml
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools-scm[toml]~=8.0",
+    "setuptools~=68.2",
+    "wheel~=0.41",
+]
+
+[project]
+authors = [
+    {email = "spencersr@gmail.com"},
+    {name = "Shane R. Spencer"},
+]
+dependencies = [
+    "pydantic-extra-types~=2.6",
+    "pydantic-settings~=2.2",
+    "pydantic~=2.6",
+    "pyyaml~=6.0",
+    "typeguard~=4.2.0",
+]
+description = "Semaphore Project: Core"
+dynamic = [
+    "version",
+]
+license = {text = "MIT License"}
+name = "semaphore-core"
+readme = "README.md"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+dev = [
+    "bandit[toml]~=1.7",
+    "black[colorama]~=24.3",
+    "build[virtualenv]~=1.2",
+    "commitizen~=3.21",
+    "coverage[toml]~=7.4",
+    "flake8-bandit~=4.1",
+    "flake8-bugbear~=24.2",
+    "flake8-builtins~=2.5",
+    "flake8-comprehensions~=3.14",
+    "flake8-isort~=6.1",
+    "flake8-print~=5.0",
+    "flake8-pyproject~=1.2",
+    "flake8-return~=1.2",
+    "flake8-use-pathlib~=0.3",
+    "flake8~=7.0",
+    "hypothesis[redis]~=6.100",
+    "isort[colors,plugins]~=5.13",
+    "mypy[install-types]~=1.9",
+    "pep8-naming~=0.13",
+    "pre-commit~=3.7",
+    "pytest-cov~=5.0",
+    "pytest-env~=1.1",
+    "pytest-mock~=3.14",
+    "pytest-xdist[psutil]~=3.5",
+    "pytest~=8.1",
+    "toml-sort~=0.23",
+    "tox~=4.14",
+    "types-cachetools~=5.3",
+    "types-pyyaml~=6.0",
+]
+
+[project.urls]
+homepage = "https://github.com/whardier/semaphore-project-python"
+
+[tool.black]
+line_length = 120
+
+[tool.flake8]
+doctests = true
+max-line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+
+[tool.mypy]
+mypy_path = "src"
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]
+
+[tool.setuptools_scm]
+version_scheme = "python-simplified-semver"

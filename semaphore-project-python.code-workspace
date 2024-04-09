@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "name": "Semaphore: Workspace",
+      "path": "."
+    },
+    {
+      "name": "Semaphore: Core",
+      "path": "semaphore-core"
+    },
+    {
+      "name": "Semaphore: Backends: Memory",
+      "path": "semaphore-backends-memory"
+    },
+    {
+      "name": "Semaphore: Backends: Filesystem",
+      "path": "semaphore-backends-filesystem"
+    },
+    {
+      "name": "Semaphore: Backends: Redis",
+      "path": "semaphore-backends-redis"
+    },
+    {
+      "name": "Semaphore: Services: HTTP: Rest",
+      "path": "semaphore-services-http-rest"
+    },
+    {
+      "name": "Semaphore: Clients: HTTP: Rest",
+      "path": "semaphore-clients-http-rest"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "semaphore-backends-memory": true,
+      "semaphore-backends-filesystem": true,
+      "semaphore-backends-redis": true,
+      "semaphore-clients-http-rest": true,
+      "semaphore-core": true,
+      "semaphore-services-http-rest": true
+    }
+  }
+}
