@@ -14,20 +14,25 @@ authors = [
     {name = "Shane R. Spencer"},
 ]
 dependencies = [
+    "aioredis[hiredis]~=2.0",
+    "hiredis~=2.3",
     "pydantic-extra-types~=2.6",
     "pydantic-settings~=2.2",
     "pydantic~=2.6",
-    "pyyaml~=6.0",
+    "semaphore-core~=0.0.1",
     "typeguard~=4.2.0",
 ]
-description = "Semaphore Project: Core"
+description = "Semaphore Project: Backends: Redis"
 dynamic = [
     "version",
 ]
 license = {text = "MIT License"}
-name = "semaphore-core"
+name = "semaphore-backends-redis"
 readme = "README.md"
 requires-python = ">=3.12"
+
+[project.entry-points."semaphore.backends"]
+redis = "semaphore.backends.redis:BackendRedis"
 
 [project.optional-dependencies]
 dev = [
@@ -46,7 +51,7 @@ dev = [
     "flake8-return~=1.2",
     "flake8-use-pathlib~=0.3",
     "flake8~=7.0",
-    "hypothesis~=6.100",
+    "hypothesis[redis]~=6.100",
     "isort[colors,plugins]~=5.13",
     "mypy[install-types]~=1.9",
     "pep8-naming~=0.13",
@@ -58,8 +63,6 @@ dev = [
     "pytest~=8.1",
     "toml-sort~=0.23",
     "tox~=4.14",
-    "types-cachetools~=5.3",
-    "types-pyyaml~=6.0",
 ]
 
 [project.urls]

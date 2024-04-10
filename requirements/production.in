@@ -1,0 +1,10 @@
+# semaphore-core
+pydantic-extra-types~=2.6
+pydantic-settings~=2.2
+pydantic~=2.6
+pyyaml~=6.0
+typeguard~=4.2
+
+# semaphore-backends-redis (less semaphore-core)
+aioredis[hiredis]~=2.0
+hiredis~=2.3

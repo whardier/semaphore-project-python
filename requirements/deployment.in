@@ -1,0 +1,16 @@
+build[virtualenv]~=1.2
+keyring~=25.1
+twine~=5.0
+
+# The following allows us to install bound versions of some keyring requirements that only apply to linux hosts.
+# Attempting to do a pip installation from a hashed set of requirements without these will error out.
+#
+# We can define the following requirements plainly and let pip-compile sort out the version.
+#
+#   ../.venv/lib/python3.12/site-packages/keyring-25.1.0.dist-info/METADATA
+#     Requires-Dist: jeepney >=0.4.2 ; sys_platform == "linux"
+#     Requires-Dist: SecretStorage >=3.2 ; sys_platform == "linux"
+#
+
+jeepney
+secretstorage

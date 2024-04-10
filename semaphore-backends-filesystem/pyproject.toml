@@ -17,17 +17,20 @@ dependencies = [
     "pydantic-extra-types~=2.6",
     "pydantic-settings~=2.2",
     "pydantic~=2.6",
-    "pyyaml~=6.0",
+    "semaphore-core~=0.0.1",
     "typeguard~=4.2.0",
 ]
-description = "Semaphore Project: Core"
+description = "Semaphore Project: Backends: Filesystem"
 dynamic = [
     "version",
 ]
 license = {text = "MIT License"}
-name = "semaphore-core"
+name = "semaphore-backends-filesystem"
 readme = "README.md"
 requires-python = ">=3.12"
+
+[project.entry-points."semaphore.backends"]
+filesystem = "semaphore.backends.filesystem:BackendFilesystem"
 
 [project.optional-dependencies]
 dev = [
@@ -58,8 +61,6 @@ dev = [
     "pytest~=8.1",
     "toml-sort~=0.23",
     "tox~=4.14",
-    "types-cachetools~=5.3",
-    "types-pyyaml~=6.0",
 ]
 
 [project.urls]
