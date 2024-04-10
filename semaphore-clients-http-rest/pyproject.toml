@@ -18,7 +18,7 @@ dependencies = [
     "pydantic-settings~=2.2",
     "pydantic~=2.6",
     "semaphore-core~=0.0.1",
-    "typeguard~=4.2.0",
+    "typeguard~=4.2",
 ]
 description = "Semaphore Project: Clients: HTTP: REST"
 dynamic = [

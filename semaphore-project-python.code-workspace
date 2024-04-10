@@ -31,12 +31,21 @@
   ],
   "settings": {
     "files.exclude": {
-      "semaphore-backends-memory": true,
       "semaphore-backends-filesystem": true,
+      "semaphore-backends-memory": true,
       "semaphore-backends-redis": true,
       "semaphore-clients-http-rest": true,
       "semaphore-core": true,
       "semaphore-services-http-rest": true
-    }
+    },
+    "python.analysis.extraPaths": [
+      "semaphore-core/src",
+      "semaphore-backends-memory/src",
+      "semaphore-backends-filesystem/src",
+      "semaphore-backends-redis/src",
+      "semaphore-services-http-rest/src",
+      "semaphore-clients-http-rest/src"
+    ],
+    "rewrap.wrappingColumn": 120
   }
 }

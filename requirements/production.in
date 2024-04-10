@@ -8,3 +8,8 @@ typeguard~=4.2
 # semaphore-backends-redis (less semaphore-core)
 aioredis[hiredis]~=2.0
 hiredis~=2.3
+
+# semaphore-services-fastapi (less semaphore-core)
+fastapi[all]~=0.110
+gunicorn~=21.2
+uvicorn[standard]~=0.29
