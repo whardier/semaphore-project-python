@@ -47,11 +47,13 @@ development-upgrade-virtual-env: virtual-env
 
 # Install an editable package of this project into the virtual environment.  This is useful for development and testing
 # and allows us to query the package metadata using libraries like `packaging` and `importlib.metadata`.
-development-install-editable-package: virtual-env
+development-install-editable-packages: virtual-env
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-core
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-memory
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-filesystem
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-redis
+	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-clients-http-rest
+	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-services-http-rest
 
 # This will install the pre-commit hooks into the `.git/hooks` directory and will cover `pre-commit`, `commit-msg`, and
 # `pre-push` events.
@@ -70,7 +72,7 @@ development-upgrade-pre-commit: virtual-env
 # Running `make development` will handle all of the steps necessary to get the development environment up and running.
 development: \
 	development-upgrade-virtual-env \
-	development-install-editable-package \
+	development-install-editable-packages \
 	development-install-pre-commit \
 	development-upgrade-pre-commit \
 	noop
@@ -85,18 +87,20 @@ production-upgrade-virtual-env: virtual-env
 	$(VIRTUAL_ENV_PYTHON_M_PIP_TOOLS) sync \
 		requirements/production.txt
 
-production-install-editable-package: virtual-env
+production-install-editable-packages: virtual-env
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-core
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-memory
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-filesystem
 	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-backends-redis
+	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-clients-http-rest
+	$(VIRTUAL_ENV_PYTHON_M_PIP) install --no-deps -e ./semaphore-services-http-rest
 
 # Running `make production` will ensure a virtualenv is set up and minimal packages are installed.  A virtualenv is
 # important to use in production builds to ensure that system level packages are not being loaded and inadvertantly not
 # included in any build artifacts.
 production: \
 	production-upgrade-virtual-env \
-	production-install-editable-package \
+	production-install-editable-packages \
 	noop
 
 # This target is a bit of a doozy.  It will clean requirements/*.txt and then compile `requirements/constraints.txt`
@@ -230,12 +234,12 @@ build:
 .PHONY: \
 	build \
 	development \
-	development-install-editable-package \
+	development-install-editable-packages \
 	development-install-pre-commit \
 	development-upgrade-pre-commit \
 	development-upgrade-virtual-env \
-	ntm-weathermap.code-workspace \
 	production \
+	production-install-editable-packages \
 	production-upgrade-virtual-env \
 	pyproject.toml \
 	requirements \
